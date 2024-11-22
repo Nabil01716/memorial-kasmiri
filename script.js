@@ -1,11 +1,3 @@
-const toggleButton = document.getElementById('theme-toggle');
-const body = document.body;
-
-toggleButton.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  toggleButton.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
-
 
 // Easter Egg: Detect "cat"
 let typedKeys = ""; // Store recently typed characters
@@ -33,4 +25,13 @@ document.addEventListener("keydown", (e) => {
   if (typedKeys.length > 20) {
     typedKeys = typedKeys.slice(-3); // Keep only the last 3 characters
   }
+});
+
+// Dynamic tab title for fun interaction
+let originalTitle = document.title;
+window.addEventListener("blur", () => {
+    document.title = "Come back, human! 🐾";
+});
+window.addEventListener("focus", () => {
+    document.title = originalTitle;
 });
